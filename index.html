@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speeak</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        body {
+            margin: 20px;
+            font-size: 1.2rem;
+        }
+
+        p {
+            line-height: 1.5;
+        }
+
+        button {
+            padding: 10px 25px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            color: #fff;
+            text-transform: uppercase;
+            background-color: rgb(39, 107, 185);
+        }
+    </style>
+</head>
+
+<body>
+    <button id="buttonSpeak">Ler em voz alta</button>
+    <button id="buttonPauseSpeak">Parar</button>
+
+    <p>Em um reino distante, cercado por montanhas cobertas de neve e florestas encantadas, havia uma pequena vila
+        chamada Arandelle. Essa vila era conhecida por sua beleza e tranquilidade, mas também por seus mistérios. No
+        centro da vila, havia uma antiga árvore que, segundo as lendas, tinha poderes mágicos.
+
+        Certa manhã, uma jovem chamada Elara, que morava na vila, acordou com uma sensação estranha. Algo a chamava para
+        a árvore antiga. Elara sempre foi curiosa e corajosa, então decidiu seguir seu instinto. Quando chegou à árvore,
+        notou uma pequena porta oculta entre as raízes.
+
+        Com o coração batendo rápido, Elara abriu a porta e encontrou uma escadaria que descia profundamente na terra.
+        Decidida a descobrir o que havia ali, desceu a escada. No final, encontrou uma caverna iluminada por cristais
+        brilhantes. No centro da caverna, havia um pedestal com um livro antigo.
+
+        Elara abriu o livro e começou a ler. Descobriu que ele continha segredos sobre a história da vila e a origem dos
+        poderes mágicos da árvore. A cada página virada, Elara se sentia mais conectada com os mistérios de Arandelle. O
+        livro falava de um antigo guardião que havia protegido a vila há séculos, mas que havia desaparecido sem deixar
+        rastros.
+
+        De repente, Elara sentiu uma presença atrás dela. Ao se virar, viu uma figura envolta em um manto escuro. Era o
+        guardião, que havia sido preso na caverna por um feitiço maligno. Com a ajuda do livro, Elara conseguiu quebrar
+        o feitiço e libertar o guardião.
+
+        O guardião, grato pela coragem de Elara, revelou que ela tinha um destino especial. Ela era a escolhida para
+        proteger a vila e a árvore mágica. Com o tempo, Elara aprendeu a usar os poderes da árvore e se tornou uma lenda
+        viva em Arandelle, mantendo a paz e a harmonia na vila.
+
+        E assim, a jovem Elara, guiada por sua curiosidade e coragem, encontrou seu verdadeiro propósito e se tornou a
+        nova guardiã de Arandelle, garantindo que os mistérios e a magia do lugar continuassem a prosperar por gerações.
+    </p>
+
+    <script>
+        const buttonSpeak = document.querySelector("#buttonSpeak")
+        const buttonPauseSpeak = document.querySelector("#buttonPauseSpeak")
+        const text = document.querySelector("p")
+
+        // A magica acontece aqui 😀👍
+        const speech = new SpeechSynthesisUtterance();
+        // Pegando o texto da tag <p></p>
+        speech.text = text.innerText;
+        // Escolhendo a linguagem
+        speech.lang = "pt-BR"
+
+        // Funçao que começa a ler o texto em voz alta
+        buttonSpeak.addEventListener("click", () => {
+            window.speechSynthesis.speak(speech)
+        })
+
+        // Funçao que cancela a leitura
+        buttonPauseSpeak.addEventListener("click", () => {
+            window.speechSynthesis.cancel(speech)
+        })
+    </script>
+</body>
+
+</html>
